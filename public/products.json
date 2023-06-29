@@ -1,52 +1,20 @@
 [
     {
-        "id": "01",
-        "name": "realme c55",
-        "old price": "12000",
-        "new price": "8000",
-        "used": "12 months",
-        "image": "https://i.ibb.co/b1xmvzC/mobile1.jpg"
-        
+        "name": "Realme",
+        "image": "https://i.ibb.co/pZ886GF/realme.jpg",
+        "ratings": "3.4",
+        "price": "8000-25000"
     },
     {
-        "id": "02",
-        "name": "realme 10 pro+",
-        "old price": "30000",
-        "new price": "25000",
-        "used": "6 months",
-        "image": "https://i.ibb.co/FsWJbTR/mobile2.jpg"
+        "name": "Redmi",
+        "image": "https://i.ibb.co/BjffBwG/redmi.jpg",
+        "ratings": "4.1",
+        "price": "5000-6000"
     },
     {
-        "id": "03",
-        "name": "redmi Note 12 pro",
-        "old price": "9000",
-        "new price": "5000",
-        "used": "14 months",
-        "image": "https://i.ibb.co/7rGgBh2/mobile3.jpg"
-
-    },
-    {
-        "id": "04",
-        "name": "redmi 12C",
-        "old price": "8000",
-        "new price": "6000",
-        "used": "4 months",
-        "image": "https://i.ibb.co/kJQj4kT/mobile4.jpg"
-    },
-    {
-        "id": "05",
-        "name": "samsung galaxy F54",
-        "old price": "35000",
-        "new price": "32000",
-        "used": "1 months",
-        "image": "https://i.ibb.co/RzFJqzN/mobile5.jpg"
-    },
-    {
-        "id": "06",
-        "name": "samsung galaxy A04",
-        "old price": "13000",
-        "new price": "10000",
-        "used": "3 months",
-        "image": "https://i.ibb.co/mFcYCB8/mobile6.jpg"
+        "name": "Samsung",
+        "image": "https://i.ibb.co/CzhJmD1/samsung.jpg",
+        "ratings": "4.2",
+        "price": "10000-32000"
     }
 ]

@@ -1,0 +1,20 @@
+[
+    {
+        "id": "05",
+        "name": "samsung galaxy F54",
+        "old_price": "35000",
+        "newPrice": "32000",
+        "used": "1 months",
+        "image": "https://i.ibb.co/p0TFW5r/mobile5.jpg",
+        "sellerName": "Lionel Scholani"
+    },
+    {
+        "id": "06",
+        "name": "samsung galaxy A04",
+        "old_price": "13000",
+        "newPrice": "10000",
+        "used": "3 months",
+        "image": "https://i.ibb.co/0KxC3Hp/mobile6.jpg" ,
+        "sellerName": "Benny Stuart"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "id": "01",
+        "name": "realme c55",
+        "oldPrice": "12000",
+        "newPrice": "8000",
+        "used": "12 months",
+        "image": "https://i.ibb.co/FxLb5dS/mobile1.jpg",
+        "sellerName": "Alex Rojer"
+    },
+    {
+        "id": "02",
+        "name": "realme 10 pro+",
+        "oldPrice": "30000",
+        "newPrice": "25000",
+        "used": "6 months",
+        "image": "https://i.ibb.co/34cCmGr/mobile2.jpg",
+        "sellerName": "Robert Alen"
+    }
+]

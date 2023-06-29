@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import img from '../../../assets/mobile3.jpeg'
 import SaleProducts from './SaleProducts/SaleProducts';
 
 const RightSideNav = () => {
@@ -13,7 +12,7 @@ const RightSideNav = () => {
     
     return (
 
-        <div>
+        <div className='w-full lg:w-5/6'>
             {
                 products.map(product => <SaleProducts product={product} key={product.id}></SaleProducts>)
             }

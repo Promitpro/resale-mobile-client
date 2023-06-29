@@ -1,0 +1,21 @@
+[
+    {
+        "id": "03",
+        "name": "redmi Note 12 pro",
+        "old_price": "9000",
+        "newPrice": "5000",
+        "used": "14 months",
+        "image": "https://i.ibb.co/5B9v6zm/mobile3.jpg" ,
+        "sellerName": "Neymar Senior"
+
+    },
+    {
+        "id": "04",
+        "name": "redmi 12C",
+        "old_price": "8000",
+        "newPrice": "6000",
+        "used": "4 months",
+        "image": "https://i.ibb.co/zQWfXvM/mobile4.jpg" ,
+        "sellerName": "Jackie Chan"
+    }
+]
