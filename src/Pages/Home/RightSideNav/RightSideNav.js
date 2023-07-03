@@ -5,7 +5,7 @@ const RightSideNav = () => {
 
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        fetch('/products.json')
+        fetch('http://localhost:5000/products')
         .then(res => res.json())
         .then(data => setProducts(data)) 
     },[])
@@ -14,7 +14,7 @@ const RightSideNav = () => {
 
         <div className='w-full lg:w-5/6'>
             {
-                products.map(product => <SaleProducts product={product} key={product.ID}></SaleProducts>)
+                products.map(product => <SaleProducts product={product} key={product._id}></SaleProducts>)
             }
         </div>
     );

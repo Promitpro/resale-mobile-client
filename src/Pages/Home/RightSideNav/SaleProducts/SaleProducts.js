@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 
 const SaleProducts = ({ product }) => {
+    console.log(product);
+
     return (
         <div className="card card-side bg-base-100 shadow-xl flex-col lg:flex-row mb-4">
             <figure><img src={product.image} alt="Movie" /></figure>
@@ -19,7 +21,7 @@ const SaleProducts = ({ product }) => {
                 </div>
 
                 <div className="card-actions justify-end" >
-                    <PrivateButton><Link to={{pathname: `/displayBrand/${product.ID}`, state: {products: product.products}}}>Details</Link></PrivateButton>
+                    <PrivateButton><Link to={{pathname: `/displayBrand/${product._id}`, state: {products: product.products}}}>Details</Link></PrivateButton>
                 </div>
             </div>
         </div>

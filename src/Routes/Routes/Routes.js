@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
             {
                 path: '/displayBrand/:id',
                 element: <DisplayBrands></DisplayBrands>,
-                loader: ({params}) => fetch(`/products.json/${params.id}`),
+                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`),
                 
             }
         ]
