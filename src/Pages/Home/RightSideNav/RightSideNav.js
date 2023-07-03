@@ -14,7 +14,7 @@ const RightSideNav = () => {
 
         <div className='w-full lg:w-5/6'>
             {
-                products.map(product => <SaleProducts product={product} key={product.id}></SaleProducts>)
+                products.map(product => <SaleProducts product={product} key={product.ID}></SaleProducts>)
             }
         </div>
     );

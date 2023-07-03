@@ -1,6 +1,7 @@
 import React from 'react';
 import PrivateButton from '../../../../PrivateButton/PrivateButton';
 import img from '../../../../assets/star.png'
+import { Link } from 'react-router-dom';
 
 
 const SaleProducts = ({ product }) => {
@@ -17,8 +18,8 @@ const SaleProducts = ({ product }) => {
                     <p className='font-semibold text-lg ml-1'>{product.ratings} ratings</p>
                 </div>
 
-                <div className="card-actions justify-end">
-                    <PrivateButton>Details</PrivateButton>
+                <div className="card-actions justify-end" >
+                    <PrivateButton><Link to={{pathname: `/displayBrand/${product.ID}`, state: {products: product.products}}}>Details</Link></PrivateButton>
                 </div>
             </div>
         </div>

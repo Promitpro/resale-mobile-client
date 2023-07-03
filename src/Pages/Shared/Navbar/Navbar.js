@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../../assets/icon.png'
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
+  const handleLogout = () =>{
+    logOut()
+    .then(() =>{})
+    .catch(error => console.log(error))
+  }
   const menuitems = <React.Fragment>
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/blogs'>Blogs</Link></li>
     <li><Link to='/about'>About</Link></li>
-    <li><Link to='/login'>Login</Link></li>
+    {
+      user?.uid ? <li><button onClick={handleLogout}>Sign out</button></li> : <li><Link to='/login'>Login</Link></li>
+    }
+    
   </React.Fragment>
   return (
     <div className="navbar bg-gradient-to-r from-primary to-secondary">

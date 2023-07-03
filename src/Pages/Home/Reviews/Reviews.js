@@ -2,7 +2,6 @@ import React from 'react';
 import people1 from '../../../assets/reviewers/people1.jpg'
 import people2 from '../../../assets/reviewers/people2.jpg'
 import people3 from '../../../assets/reviewers/people3.jpg'
-import people4 from '../../../assets/reviewers/people4.jpg'
 import Review from './Review';
 
 const Reviews = () => {

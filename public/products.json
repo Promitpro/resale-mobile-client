@@ -1,20 +1,90 @@
 [
     {
+        "ID": "11",
         "name": "Realme",
         "image": "https://i.ibb.co/pZ886GF/realme.jpg",
         "ratings": "3.4",
-        "price": "8000-25000"
+        "price": "8000-25000",
+        "products": [
+            {
+                "id": "01",
+                "name": "realme c55",
+                "oldPrice": "12000",
+                "newPrice": "8000",
+                "used": "12 months",
+                "image": "https://i.ibb.co/FxLb5dS/mobile1.jpg",
+                "sellerName": "Alex Rojer",
+                "condition": "good"
+            },
+            {
+                "id": "02",
+                "name": "realme 10 pro+",
+                "oldPrice": "30000",
+                "newPrice": "25000",
+                "used": "6 months",
+                "image": "https://i.ibb.co/34cCmGr/mobile2.jpg",
+                "sellerName": "Robert Alen",
+                "condition": "excellent"
+            }
+        ]
     },
     {
+        "ID": "22",
         "name": "Redmi",
         "image": "https://i.ibb.co/BjffBwG/redmi.jpg",
         "ratings": "4.1",
-        "price": "5000-6000"
+        "price": "5000-6000",
+        "products": [
+            {
+                "id": "03",
+                "name": "redmi Note 12 pro",
+                "oldPrice": "9000",
+                "newPrice": "5000",
+                "used": "14 months",
+                "image": "https://i.ibb.co/5B9v6zm/mobile3.jpg" ,
+                "sellerName": "Neymar Senior",
+                "condition": "medium"
+        
+            },
+            {
+                "id": "04",
+                "name": "redmi 12C",
+                "oldPrice": "8000",
+                "newPrice": "6000",
+                "used": "4 months",
+                "image": "https://i.ibb.co/zQWfXvM/mobile4.jpg" ,
+                "sellerName": "Jackie Chan",
+                "condition": "best"
+            }
+        ]
     },
     {
+        "ID": "33",
         "name": "Samsung",
         "image": "https://i.ibb.co/CzhJmD1/samsung.jpg",
         "ratings": "4.2",
-        "price": "10000-32000"
+        "price": "10000-32000",
+        "products":[
+            {
+                "id": "05",
+                "name": "samsung galaxy F54",
+                "oldPrice": "35000",
+                "newPrice": "32000",
+                "used": "1 months",
+                "image": "https://i.ibb.co/p0TFW5r/mobile5.jpg",
+                "sellerName": "Lionel Scholani",
+                "condition": "excellent"
+            },
+            {
+                "id": "06",
+                "name": "samsung galaxy A04",
+                "oldPrice": "13000",
+                "newPrice": "10000",
+                "used": "3 months",
+                "image": "https://i.ibb.co/0KxC3Hp/mobile6.jpg" ,
+                "sellerName": "Benny Stuart",
+                "condition": "good"
+            }
+        ]
     }
 ]

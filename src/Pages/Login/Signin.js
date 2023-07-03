@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Signin = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();
+    const {createUser, updateUser} = useContext(AuthContext);
+    const [signInError, setSignInError] = useState('');
     const handleSignIn = data =>{
         console.log(data);
+        setSignInError('');
+        createUser(data.email, data.password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            toast.success('user created successfully');
+            const userInfo = {
+                displayName: data.name
+            }
+            updateUser(userInfo)
+            .then(() => {})
+            .catch(err => console.log(err))
+        })
+        .catch(error => {
+            console.log(error);
+            setSignInError(error.message);
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200 w-96 mx-auto">
@@ -45,7 +66,7 @@ const Signin = () => {
                     </div>
 
 
-                    {/* <p>{data}</p> */}
+                    {signInError && <p className='text-red-600'>{signInError}</p>}
                     <button type="submit" className='btn btn-primary bg-gradient-to-r from-primary to-secondary text-black w-full mt-8'>Sign In</button>
                     
                 </form>
