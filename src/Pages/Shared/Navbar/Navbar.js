@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import img from '../../../assets/icon.png'
 import { AuthContext } from '../../../contexts/AuthProvider';
 
+
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
   const handleLogout = () =>{
@@ -30,13 +31,18 @@ const Navbar = () => {
               {menuitems}
           </ul>
         </div>
-        <img src={img} className='w-5 h-5 ml-4' alt="" />
+        <img src={img} className='w-10 rounded-full ml-4' alt="" />
         <Link to='/' className="btn btn-ghost normal-case text-xl">Mobile Island</Link>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-semibold">
           {menuitems}
         </ul>
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src={user?.photoURL} alt='' />
+        </div>
+      </label>
       </div>
       
     </div>

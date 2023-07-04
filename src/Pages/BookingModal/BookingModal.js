@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const BookingModal = ({ mobileBooking, setMobileBooking }) => {
 
@@ -27,7 +28,8 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
             place
         }
         console.log(bookings);
-        setMobileBooking(null)
+        setMobileBooking(null);
+        toast.success('Your order booked successfully');
     }
     return (
         <>
@@ -39,7 +41,7 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3'>
         
                         
-                        <input name='buyerName' type="text" defaultValue={user?.name} disabled className="input input-bordered w-full" required />
+                        <input name='buyerName' type="text" defaultValue={user?.displayName} disabled className="input input-bordered w-full" required />
                         <input name='email' type="text" defaultValue={user?.email} disabled className="input input-bordered w-full " required />
                         <input name='mobileName' type="text" defaultValue={mobileBooking?.name} disabled className="input input-bordered w-full " required />
                         <input name='price' type="text" defaultValue={mobileBooking?.newPrice} disabled className="input input-bordered w-full " required />
