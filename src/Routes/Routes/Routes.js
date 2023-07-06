@@ -7,6 +7,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Display from "../../Pages/Display/Display";
 
 import DisplayBrands from "../../Pages/DisplayBrands/DisplayBrands";
+import AddProducts from "../../Pages/AddProduct/AddProducts";
 
 
 export const router = createBrowserRouter([
@@ -29,8 +30,11 @@ export const router = createBrowserRouter([
             {
                 path: '/displayBrand/:id',
                 element: <DisplayBrands></DisplayBrands>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`),
-                
+                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+            },
+            {
+                path: '/addProduct',
+                element: <AddProducts></AddProducts>
             }
         ]
     },

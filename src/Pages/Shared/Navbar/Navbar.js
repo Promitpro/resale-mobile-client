@@ -16,8 +16,12 @@ const Navbar = () => {
     <li><Link to='/blogs'>Blogs</Link></li>
     <li><Link to='/about'>About</Link></li>
     {
-      user?.uid ? <li><button onClick={handleLogout}>Sign out</button></li> : <li><Link to='/login'>Login</Link></li>
+      user?.userType ==='seller' && <li><Link to='/addProduct'>Add Product</Link></li>
     }
+    {
+      user?.uid ? <li><button onClick={handleLogout}>Log out</button></li> : <li><Link to='/login'>Login</Link></li>
+    }
+    
     
   </React.Fragment>
   return (

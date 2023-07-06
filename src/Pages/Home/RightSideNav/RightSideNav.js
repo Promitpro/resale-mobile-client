@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import SaleProducts from './SaleProducts/SaleProducts';
 import { useQuery } from 'react-query';
 
@@ -13,12 +13,6 @@ const RightSideNav = () => {
         }
     })
 
-    // const [products, setProducts] = useState([]);
-    // useEffect(()=>{
-    //     fetch('http://localhost:5000/products')
-    //     .then(res => res.json())
-    //     .then(data => setProducts(data)) 
-    // },[])
     
     return (
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const SaleProducts = ({ product }) => {
-    console.log(product);
+    
 
     return (
         <div className="card card-side bg-base-100 shadow-xl flex-col lg:flex-row mb-4">

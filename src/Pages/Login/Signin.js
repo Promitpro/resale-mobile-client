@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
@@ -9,6 +9,7 @@ const Signin = () => {
     const { createUser, updateUser } = useContext(AuthContext);
     const [signInError, setSignInError] = useState('');
     const [userType, setUserType] = useState('user');
+    const navigate = useNavigate();
     const handleSignIn = data => {
 
         console.log(data);
@@ -16,15 +17,19 @@ const Signin = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
+                
                 console.log(user);
                 toast.success('user created successfully');
                 const userInfo = {
                     displayName: data.name,
                     userType: userType
                 }
+                user.userType = userType;
                 console.log(userInfo);
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => { 
+                        navigate('/')
+                    })
                     .catch(err => console.log(err))
             })
             .catch(error => {
