@@ -8,6 +8,7 @@ import Display from "../../Pages/Display/Display";
 
 import DisplayBrands from "../../Pages/DisplayBrands/DisplayBrands";
 import AddProducts from "../../Pages/AddProduct/AddProducts";
+import MyProducts from "../../Pages/MyProducts/MyProducts";
 
 
 export const router = createBrowserRouter([
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: '/addProduct',
                 element: <AddProducts></AddProducts>
+            },
+            {
+                path: '/myProducts',
+                element: <MyProducts></MyProducts>
             }
         ]
     },
