@@ -1,13 +1,15 @@
 import moment from 'moment/moment';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const AddProducts = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const imgHostKey = process.env.REACT_APP_imgbb_key;
     const navigate = useNavigate();
+    const {user} = useContext(AuthContext);
     const currentDate = moment().format('YYYY-MM-DD');
     const handleAddProduct = data => {
         
@@ -30,8 +32,9 @@ const AddProducts = () => {
                     location : data.location,
                     phoneNumber : data.phoneNumber,
                     category : data.category,
-                    image : data.image,
-                    time : currentDate
+                    image : imgData.data.url,
+                    time : currentDate,
+                    email: user?.email
                 
                 }
                 console.log(addProduct);

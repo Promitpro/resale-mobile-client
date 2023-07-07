@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -14,15 +14,21 @@ const Login = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
+    
+
     const handleSigninWithGoogle = () => {
         googleSignIn(googleProvider)
         .then(result => {
             const user = result.user;
             console.log(user);
             const currentUser = {
-                email: user.email
+                email: user.email,
+                           
             }
+            
             console.log(currentUser);
+            saveUserInDatabase(user?.email, user?.displayName, user.userType='user')
+            navigate('/');
         })
         .catch(error => console.log(error))
     }
@@ -43,6 +49,25 @@ const Login = () => {
         })
         
     }
+
+    const saveUserInDatabase = (name, email, userType) => {
+        const user = {name, email, userType};
+        fetch('http://localhost:5000/users',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+    
+            navigate('/')
+        })
+        .catch(error => console.log(error))
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200 w-96 mx-auto">
             <div className="hero-content flex-col ">
@@ -76,7 +101,7 @@ const Login = () => {
 
                     {loginError && <p className='text-red-600 '>{loginError}</p>}
                     <button type="submit" className='btn btn-primary bg-gradient-to-r from-primary to-secondary text-black w-full my-8'>Login</button>
-                    <button onClick={handleSigninWithGoogle} className="btn btn-outline w-full  font-semibold mb-5">Sign in with <img className='h-5 w-25' src={img} alt="" srcset="" /></button>
+                    <button onClick={handleSigninWithGoogle} className="btn btn-outline w-full  font-semibold mb-5">Sign in with <img className='h-5 w-25' src={img} alt="" /></button>
                 </form>
             </div>
         </div>

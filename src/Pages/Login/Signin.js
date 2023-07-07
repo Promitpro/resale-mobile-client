@@ -28,7 +28,7 @@ const Signin = () => {
                 console.log(userInfo);
                 updateUser(userInfo)
                     .then(() => { 
-                        navigate('/')
+                        saveUserInDatabase(data.name, data.email, userType)
                     })
                     .catch(err => console.log(err))
             })
@@ -37,6 +37,22 @@ const Signin = () => {
                 setSignInError(error.message);
             })
 
+    }
+
+    const saveUserInDatabase = (name, email, userType) => {
+        const user = {name, email, userType};
+        fetch('http://localhost:5000/users',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            navigate('/')
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200 w-96 mx-auto">
