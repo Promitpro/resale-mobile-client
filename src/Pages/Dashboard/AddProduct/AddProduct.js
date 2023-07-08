@@ -3,9 +3,10 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthProvider';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
-const AddProducts = () => {
+
+const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const imgHostKey = process.env.REACT_APP_imgbb_key;
     const navigate = useNavigate();
@@ -49,7 +50,7 @@ const AddProducts = () => {
                 .then(result => {
                     console.log(result);
                     toast.success(`${data.productName} is added successfully`);
-                    navigate('/myProducts');
+                    navigate('/dashboard/myProducts');
                 })
                 
             }
@@ -168,7 +169,7 @@ const AddProducts = () => {
                 </div>
 
 
-                <input className='btn bg-gradient-to-r from-primary to-secondary text-black w-full mt-3' type="submit" value="Add Doctor" />
+                <input className='btn bg-gradient-to-r from-primary to-secondary text-black w-full mt-3' type="submit" value="Add Product" />
 
             </form>
 
@@ -176,5 +177,5 @@ const AddProducts = () => {
     );
 };
 
-export default AddProducts;
+export default AddProduct;
 

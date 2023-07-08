@@ -4,11 +4,15 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Signin from "../../Pages/Login/Signin";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import Display from "../../Pages/Display/Display";
+
 
 import DisplayBrands from "../../Pages/DisplayBrands/DisplayBrands";
-import AddProducts from "../../Pages/AddProduct/AddProducts";
-import MyProducts from "../../Pages/MyProducts/MyProducts";
+
+
+import DashboardLayout from "../../layout/DashboardLayout";
+import MyOrders from "../../Pages/Dashboard/MyOrders";
+import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
+import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 
 
 export const router = createBrowserRouter([
@@ -33,19 +37,27 @@ export const router = createBrowserRouter([
                 element: <DisplayBrands></DisplayBrands>,
                 loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
             },
-            {
-                path: '/addProduct',
-                element: <AddProducts></AddProducts>
-            },
-            {
-                path: '/myProducts',
-                element: <MyProducts></MyProducts>
-            }
+            
         ]
     },
     {
-        path: '/display',
-        element:<Display></Display>
+        path: '/dashboard',
+        element:<DashboardLayout></DashboardLayout>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/myProducts',
+                element: <MyProducts></MyProducts>
+            },
+            {
+                path: '/dashboard/addProduct',
+                element: <AddProduct></AddProduct>
+            },
+
+        ]
     }
 
 ])

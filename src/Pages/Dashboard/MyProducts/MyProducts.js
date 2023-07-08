@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
-import { AuthContext } from '../../contexts/AuthProvider';
+import { AuthContext } from '../../../contexts/AuthProvider';
+
 
 const MyProducts = () => {
   const { user } = useContext(AuthContext);
