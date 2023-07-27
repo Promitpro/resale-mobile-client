@@ -38,7 +38,7 @@ const AddProduct = () => {
                     email: user?.email
                 
                 }
-                console.log(addProduct);
+                
                 fetch('http://localhost:5000/sellingProducts', {
                     method: 'POST',
                     headers: {

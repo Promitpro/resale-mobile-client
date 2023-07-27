@@ -58,7 +58,7 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
                         <input name='mobileName' type="text" defaultValue={mobileBooking?.name} disabled className="input input-bordered w-full " required />
                         <input name='price' type="text" defaultValue={mobileBooking?.newPrice} disabled className="input input-bordered w-full " required />
                         <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered w-full" required />
-                        <input name='place' type="text" defaultValue={mobileBooking?.place} placeholder="Location" disabled className="input input-bordered w-full" required />
+                        <input name='place' type="text" placeholder="Location" className="input input-bordered w-full" required />
                         
                         <input type="submit" value="SUBMIT" className="btn bg-gradient-to-r from-primary to-secondary text-black w-full " />
                     </form>
