@@ -33,6 +33,21 @@ const MyProducts = () => {
       }
     })
   }
+  const handleSellingProductDelete = sellingProduct => {
+    fetch(`http://localhost:5000/sellingProducts/${sellingProduct?._id}`,{
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.acknowledged)
+      {
+        toast.success('Your product deleted successfully');
+        refetch()
+      }
+
+    })
+
+  }
   return (
     <div>
       <h1 style={{ textShadow: '1px 1px  #CBD28F' }} className='text-center text-3xl font-bold text-primary my-12'>My Products</h1>
@@ -85,7 +100,7 @@ const MyProducts = () => {
                     
                   </th>
                   <th>
-                    <button className="btn btn-ghost btn-xs">Delete</button>
+                    <button onClick={() => handleSellingProductDelete(sellingProduct)} className="btn btn-ghost btn-xs">Delete</button>
                   </th>
 
                 </tr>)

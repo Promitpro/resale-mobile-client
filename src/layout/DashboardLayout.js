@@ -29,8 +29,8 @@ const DashboardLayout = () => {
                         <>
                             <li className='hover:bg-secondary'><Link to='/dashboard/addProduct'>Add a Product</Link></li>
                             <li className='hover:bg-secondary'><Link to='/dashboard/myProducts'>My Products</Link></li>
-                            <li className='hover:bg-secondary'><Link to='/dashboard/allSellers'>All Sellers</Link></li>
-                            <li className='hover:bg-secondary'><Link to='/dashboard/allBuyers'>All Buyers</Link></li>
+                            <li className='hover:bg-secondary'><Link to='/dashboard/allsellers'>All Sellers</Link></li>
+                            <li className='hover:bg-secondary'><Link to='/dashboard/allbuyers'>All Buyers</Link></li>
                             <li className='hover:bg-secondary'><Link to='/dashboard/reportedItems'>Reported Items</Link></li>
                         </>
 

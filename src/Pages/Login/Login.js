@@ -27,7 +27,7 @@ const Login = () => {
             }
             
             console.log(currentUser);
-            saveUserInDatabase(user?.email, user?.displayName, user.userType='user')
+            saveUserInDatabase( user?.displayName, user?.email, user.userType='user')
             navigate('/');
         })
         .catch(error => console.log(error))
