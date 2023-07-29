@@ -35,9 +35,9 @@ export const router = createBrowserRouter([
                 element: <Signin></Signin>
             },
             {
-                path: '/displayBrand/:id',
+                path: '/displayBrand/:brand',
                 element: <DisplayBrands></DisplayBrands>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/brands/${params.brand}`)
             },
             
         ]

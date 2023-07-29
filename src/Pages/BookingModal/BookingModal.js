@@ -56,7 +56,7 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
                         <input name='buyerName' type="text" defaultValue={user?.displayName} disabled className="input input-bordered w-full" required />
                         <input name='email' type="text" defaultValue={user?.email} disabled className="input input-bordered w-full " required />
                         <input name='mobileName' type="text" defaultValue={mobileBooking?.name} disabled className="input input-bordered w-full " required />
-                        <input name='price' type="text" defaultValue={mobileBooking?.newPrice} disabled className="input input-bordered w-full " required />
+                        <input name='newPrice' type="text" defaultValue={mobileBooking?.newPrice} disabled className="input input-bordered w-full " required />
                         <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered w-full" required />
                         <input name='place' type="text" placeholder="Location" className="input input-bordered w-full" required />
                         

@@ -11,7 +11,7 @@ const AddProduct = () => {
     const imgHostKey = process.env.REACT_APP_imgbb_key;
     const navigate = useNavigate();
     const {user} = useContext(AuthContext);
-    const currentDate = moment().format('YYYY-MM-DD');
+    const currentDate = moment().format('DD-MM-YYYY');
     const handleAddProduct = data => {
         
         const image = data.image[0];
@@ -28,14 +28,16 @@ const AddProduct = () => {
             {
                 const addProduct = {
                     productName : data.productName,
-                    price : data.price,
+                    oldPrice : data.oldPrice,
+                    newPrice : data.newPrice,
                     condition : data.condition,
                     location : data.location,
                     phoneNumber : data.phoneNumber,
                     category : data.category,
                     image : imgData.data.url,
                     time : currentDate,
-                    email: user?.email
+                    email: user?.email,
+                    name: user?.name
                 
                 }
                 
@@ -59,6 +61,7 @@ const AddProduct = () => {
         
     }
     return (
+        user?.userType==='seller' ?
         <div className='mb-12'>
             <h1 style={{ textShadow: '1px 1px  #CBD28F' }} className='text-center text-3xl font-bold text-primary my-12'>Add a Product</h1>
 
@@ -74,16 +77,23 @@ const AddProduct = () => {
                 <div className="form-control w-full  pb-3">
 
                     <input type="text" className="input input-bordered input-secondary w-full "
-                        {...register("price", { required: 'Price is required' })}
+                        {...register("oldPrice", { required: 'Old price is required' })}
+                        placeholder="oldPrice" />
+                    {errors.price && <p className='text-red-600 font-semibold pt-3' >{errors.oldPrice?.message}</p>}
+                </div>
+                <div className="form-control w-full  pb-3">
+
+                    <input type="text" className="input input-bordered input-secondary w-full "
+                        {...register("newPrice", { required: 'New price is required' })}
                         placeholder="price" />
-                    {errors.price && <p className='text-red-600 font-semibold pt-3' >{errors.price?.message}</p>}
+                    {errors.newPrice && <p className='text-red-600 font-semibold pt-3' >{errors.newPrice?.message}</p>}
                 </div>
                 <div className="form-control w-full  pb-3">
 
                     <select
                         {...register("condition")}
                         className="select border-secondary w-full ">
-                        <option disabled selected className='text text-slate-400'>Your phone's condition</option>
+                        <option disabled selected className='text text-slate-400' required>Your phone's condition</option>
                         <option>excellent</option>
                         <option>good</option>
                         <option>fair</option>
@@ -124,30 +134,30 @@ const AddProduct = () => {
                         {...register("purchased")}
                         className="select border-secondary w-full ">
                         <option disabled selected>Phone purchased</option>
-                        <option>1 month ago</option>
-                        <option>2 month ago</option>
-                        <option>3 month ago</option>
-                        <option>4 month ago</option>
-                        <option>5 month ago</option>
-                        <option>6 month ago</option>
-                        <option>7 month ago</option>
-                        <option>8 month ago</option>
-                        <option>9 month ago</option>
-                        <option>10 month ago</option>
-                        <option>11 month ago</option>
-                        <option>12 month ago</option>
-                        <option>13 month ago</option>
-                        <option>14 month ago</option>
-                        <option>15 month ago</option>
-                        <option>16 month ago</option>
-                        <option>17 month ago</option>
-                        <option>18 month ago</option>
-                        <option>19 month ago</option>
-                        <option>20 month ago</option>
-                        <option>21 month ago</option>
-                        <option>22 month ago</option>
-                        <option>23 month ago</option>
-                        <option>24 month ago</option>
+                        <option>1 month</option>
+                        <option>2 month</option>
+                        <option>3 month</option>
+                        <option>4 month</option>
+                        <option>5 month</option>
+                        <option>6 month</option>
+                        <option>7 month</option>
+                        <option>8 month</option>
+                        <option>9 month</option>
+                        <option>10 month</option>
+                        <option>11 month</option>
+                        <option>12 month</option>
+                        <option>13 month</option>
+                        <option>14 month</option>
+                        <option>15 month</option>
+                        <option>16 month</option>
+                        <option>17 month</option>
+                        <option>18 month</option>
+                        <option>19 month</option>
+                        <option>20 month</option>
+                        <option>21 month</option>
+                        <option>22 month</option>
+                        <option>23 month</option>
+                        <option>24 month</option>
 
 
                     </select>
@@ -174,6 +184,8 @@ const AddProduct = () => {
             </form>
 
         </div>
+        :
+        <p className='text-xl font-semibold text-center'>You can not add product</p>
     );
 };
 
