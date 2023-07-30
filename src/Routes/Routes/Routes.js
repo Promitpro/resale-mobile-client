@@ -15,6 +15,7 @@ import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import Allusers from "../../Pages/Dashboard/Allusers/Allusers";
 import Allsellers from "../../Pages/Dashboard/Allusers/Allsellers";
+import DashBoard from "../../Pages/Dashboard/DashBoard";
 
 
 export const router = createBrowserRouter([
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
+                element: <DashBoard></DashBoard>
+            },
+            {
+                path: '/dashboard/myOrder',
                 element: <MyOrders></MyOrders>
             },
             {

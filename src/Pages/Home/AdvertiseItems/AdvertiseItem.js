@@ -7,7 +7,7 @@ const AdvertiseItem = ({advertiseItem}) => {
                     <figure><img className='w-full h-64' src={advertiseItem.image} alt="pic" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{advertiseItem.productName}</h2>
-                        <p className='font-semibold text-sm'>price: {advertiseItem.price}</p>
+                        <p className='font-semibold text-sm'>price: {advertiseItem.newPrice}</p>
                         <p className='font-semibold text-sm'>product added on: {advertiseItem.time}</p>
                         <div className="card-actions justify-end">
                             <button className="btn btn-primary">Buy Now</button>

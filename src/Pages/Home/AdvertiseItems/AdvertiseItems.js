@@ -21,6 +21,7 @@ const AdvertiseItems = () => {
 
 
     return (
+        advertiseItems.length &&
         <div>
             <h1 style={{ textShadow: '1px 1px  #CBD28F' }} className='text-center text-3xl font-bold text-primary my-12'>Advertisements</h1>
             <div className='my-14 grid grid-cols-1 lg:grid-cols-3 w-full gap-4 place-items-center'>

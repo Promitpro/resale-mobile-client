@@ -23,13 +23,13 @@ const handleReportItem = productId => {
 
     return (
         <div className="card card-side bg-base-100  shadow-xl flex-col lg:flex-row mb-4">
-            <figure><img className='h-auto lg:h-80 w-full lg:w-80' src={bdata?.image} alt="Movie" /></figure>
+            <figure><img className='h-auto lg:h-80 w-full lg:w-80 object-cover' src={bdata?.image} alt="Movie" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-2xl">{bdata?.productName}</h2>
                 <p className='font-semibold text-sm'>original price: {bdata?.oldPrice}</p>
-                <p className='font-semibold text-sm'>resale price: {bdata?.price}</p>
+                <p className='font-semibold text-sm'>resale price: {bdata?.newPrice}</p>
                 <p className='font-semibold text-sm'>condition: {bdata?.condition}</p>
-                <p className='font-semibold text-sm'>used: {bdata?.used}</p>
+                <p className='font-semibold text-sm'>used: {bdata?.purchased}s</p>
                 
 
 
@@ -37,7 +37,7 @@ const handleReportItem = productId => {
                 <div className='flex'>
 
                     <img className='w-4 h-4 mt-2 mr-2 ' src={img} alt="" />
-                    <p className='font-bold text-base '>seller name: {bdata.sellerName}</p>
+                    <p className='font-bold text-base '>seller name: {bdata?.displayName}</p>
                 </div>
 
                 <div className="card-actions justify-end">

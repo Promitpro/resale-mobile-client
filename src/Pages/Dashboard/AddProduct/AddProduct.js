@@ -11,6 +11,7 @@ const AddProduct = () => {
     const imgHostKey = process.env.REACT_APP_imgbb_key;
     const navigate = useNavigate();
     const {user} = useContext(AuthContext);
+    console.log(user);
     const currentDate = moment().format('DD-MM-YYYY');
     const handleAddProduct = data => {
         
@@ -34,10 +35,12 @@ const AddProduct = () => {
                     location : data.location,
                     phoneNumber : data.phoneNumber,
                     category : data.category,
+                    purchased : data.purchased,
                     image : imgData.data.url,
                     time : currentDate,
                     email: user?.email,
-                    name: user?.name
+                    displayName : user?.displayName
+
                 
                 }
                 
@@ -61,7 +64,7 @@ const AddProduct = () => {
         
     }
     return (
-        user?.userType==='seller' ?
+        
         <div className='mb-12'>
             <h1 style={{ textShadow: '1px 1px  #CBD28F' }} className='text-center text-3xl font-bold text-primary my-12'>Add a Product</h1>
 
@@ -78,14 +81,14 @@ const AddProduct = () => {
 
                     <input type="text" className="input input-bordered input-secondary w-full "
                         {...register("oldPrice", { required: 'Old price is required' })}
-                        placeholder="oldPrice" />
+                        placeholder="old price" />
                     {errors.price && <p className='text-red-600 font-semibold pt-3' >{errors.oldPrice?.message}</p>}
                 </div>
                 <div className="form-control w-full  pb-3">
 
                     <input type="text" className="input input-bordered input-secondary w-full "
                         {...register("newPrice", { required: 'New price is required' })}
-                        placeholder="price" />
+                        placeholder="new price" />
                     {errors.newPrice && <p className='text-red-600 font-semibold pt-3' >{errors.newPrice?.message}</p>}
                 </div>
                 <div className="form-control w-full  pb-3">
@@ -184,8 +187,7 @@ const AddProduct = () => {
             </form>
 
         </div>
-        :
-        <p className='text-xl font-semibold text-center'>You can not add product</p>
+        
     );
 };
 
