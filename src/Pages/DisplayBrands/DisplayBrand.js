@@ -1,21 +1,22 @@
 import React from 'react';
 import img from '../../assets/verify.png'
+import { toast } from 'react-hot-toast';
 
 
 
 const DisplayBrand = ({ bdata, setMobileBooking }) => {
 
 const handleReportItem = productId => {
-    fetch(`http://localhost:5000/products/${productId}`,{
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ productReport: 'reported' }),
+    fetch(`http://localhost:5000/sellingProducts/${productId}/report`,{
+        method: 'PUT'
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        console.log(data);
+        if(data.modifiedCount > 0)
+        {
+            toast.success('This item is reported')
+        }
     })
     
 }    

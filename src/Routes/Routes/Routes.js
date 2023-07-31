@@ -16,6 +16,8 @@ import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import Allusers from "../../Pages/Dashboard/Allusers/Allusers";
 import Allsellers from "../../Pages/Dashboard/Allusers/Allsellers";
 import DashBoard from "../../Pages/Dashboard/DashBoard";
+import ReportedItems from "../../Pages/Dashboard/ReportedItems/ReportedItems";
+import Blogs from "../../Pages/Blogs/Blogs";
 
 
 export const router = createBrowserRouter([
@@ -36,8 +38,12 @@ export const router = createBrowserRouter([
                 element: <Signin></Signin>
             },
             {
+                path: '/blogs',
+                element: <Blogs></Blogs>
+            },
+            {
                 path: '/displayBrand/:brand',
-                element: <DisplayBrands></DisplayBrands>,
+                element: <PrivateRoute><DisplayBrands></DisplayBrands></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/brands/${params.brand}`)
             },
             
@@ -45,7 +51,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element:<DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
             {
                 path: '/dashboard',
@@ -70,6 +76,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allsellers',
                 element: <Allsellers></Allsellers>
+            },
+            {
+                path: '/dashboard/reportedItems',
+                element: <ReportedItems></ReportedItems>
             },
 
         ]

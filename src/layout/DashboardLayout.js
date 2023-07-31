@@ -42,12 +42,12 @@ const DashboardLayout = () => {
                 <div className="drawer-side ">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content font-semibold ">
-                        {/* Common menu option for both user and seller */}
+                        
                         <li className="hover:bg-secondary">
                             <Link to="/dashboard"></Link>
                         </li>
 
-                        {/* User-specific menu options */}
+                        
                          {isUser && (
                              <>
                                 <li className="hover:bg-secondary">
@@ -56,7 +56,7 @@ const DashboardLayout = () => {
                             </>
                         )} 
 
-                        {/* Seller-specific menu options */}
+                        
                         {isSeller && ( 
                             <>
                                 <li className="hover:bg-secondary">
