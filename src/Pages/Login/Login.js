@@ -4,31 +4,39 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import img from '../../assets/google-logo.png'
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const { register, formState: {errors}, handleSubmit } = useForm();
     const [loginError, setLoginError] = useState('');
     const {signIn, googleSignIn} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail)
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
-    
+    if(token){
+        navigate(from, {replace: true});
+    }
 
     const handleSigninWithGoogle = () => {
         googleSignIn(googleProvider)
         .then(result => {
             const user = result.user;
             console.log(user);
+            setLoginUserEmail(user.email)
             const currentUser = {
                 email: user.email,
                            
             }
             
             console.log(currentUser);
-            saveUserInDatabase( user?.displayName, user?.email, user.userType='user')
-            navigate('/');
+            saveUserInDatabase( user?.displayName, user?.email, user.userType='user');
+            const accessToken = result.credential.accessToken;
+            localStorage.setItem('accessToken', accessToken)
+            navigate(from, {replace: true});
         })
         .catch(error => console.log(error))
     }
@@ -41,7 +49,8 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            navigate(from, {replace: true});
+            setLoginUserEmail(data.email)
+            
         })
         .catch(error => {
             console.log(error);
