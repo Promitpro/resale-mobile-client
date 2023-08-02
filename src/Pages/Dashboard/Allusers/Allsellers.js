@@ -41,6 +41,7 @@ const Allsellers = () => {
                             <th>Name</th>
                             <th>email</th>
                             <th>Delete</th>
+                            <th>Verify</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,7 +52,8 @@ const Allsellers = () => {
                                     <th>{i+1}</th>
                                     <td>{allseller.name}</td>
                                     <td>{allseller.email}</td>
-                                    <td><button className='className="btn btn-ghost' onClick={()=>handleDelete(allseller)}>Delete</button></td>
+                                    <td><button className='className="btn btn-xs btn-secondary' onClick={()=>handleDelete(allseller)}>Delete</button></td>
+                                    <td><button className='className="btn btn-xs btn-primary' >Verify</button></td>
                                 </tr>)
                         }
 

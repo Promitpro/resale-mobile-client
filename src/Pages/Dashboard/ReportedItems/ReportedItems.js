@@ -74,7 +74,7 @@ const ReportedItems = () => {
                   <td>{reportedItem.newPrice}</td>
                   
                   <th>
-                    <button onClick={() => handleReportedItemsDelete(reportedItem)} className="btn btn-ghost btn-xs">Delete</button>
+                    <button onClick={() => handleReportedItemsDelete(reportedItem)} className="btn btn-primary btn-xs">Delete</button>
                   </th>
 
                 </tr>)

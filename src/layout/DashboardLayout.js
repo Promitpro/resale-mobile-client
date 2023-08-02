@@ -3,10 +3,12 @@ import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { useQuery } from 'react-query';
+import useAdmin from '../hooks/useAdmin';
 
 const DashboardLayout = () => {
 
     const { user } = useContext(AuthContext);
+    const [isAdmin, isAdminLoading] = useAdmin(user?.email);
 
     const { data: users = [], isLoading, error } = useQuery({
         queryKey: 'users',
@@ -17,7 +19,7 @@ const DashboardLayout = () => {
             return data;
         }
     })
-    if(isLoading){
+    if(isLoading || isAdminLoading){
         return <progress className="progress w-56 left-1/3 ml-0 lg:ml-28"></progress>
     }
     if(error)
@@ -27,8 +29,6 @@ const DashboardLayout = () => {
 
     const isUser = users[0].userType === 'user';
     const isSeller = users[0].userType === 'seller';
-
-
 
     return (
         <div>
@@ -65,6 +65,12 @@ const DashboardLayout = () => {
                                 <li className="hover:bg-secondary">
                                     <Link to="/dashboard/myProducts">My Products</Link>
                                 </li>
+                                
+                            </>
+                        )}
+                        {isAdmin && ( 
+                            <>
+                                
                                 <li className="hover:bg-secondary">
                                     <Link to="/dashboard/allsellers">All Sellers</Link>
                                 </li>

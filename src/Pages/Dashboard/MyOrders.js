@@ -20,37 +20,47 @@ const MyOrders = () => {
     return (
         <div>
             <h1 style={{ textShadow: '1px 1px  #CBD28F' }} className='text-center text-3xl font-bold text-primary my-12'>My Orders</h1>
-            {bookings.length?
-                <div className="overflow-x-auto">
+
+            <div className="overflow-x-auto">
                 <table className="table text-center">
 
                     <thead>
                         <tr>
                             <th></th>
+                            <th>Product</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Location</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {   
+                        {
                             bookings.map((booking, i) =>
                                 <tr >
                                     <th>{i + 1}.</th>
+                                    <td>
+                                        <div className="flex items-center space-x-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle w-12 h-12">
+                                                    <img src={booking.image} alt="Avatar Tailwind CSS Component" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
                                     <td>{booking.mobileName}</td>
                                     <td>{booking.price}</td>
                                     <td>{booking.place}</td>
+                                    <td><button className='btn btn-xs btn-primary'>Pay</button></td>
                                 </tr>
                             )
-                            
-             
+
+
                         }
                     </tbody>
                 </table>
             </div>
-            :
-            <p className='text-xl font-semibold text-center'>You have not order anything</p>
-            }
         </div >
     );
 };

@@ -13,9 +13,10 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
         const buyerName = form.buyerName.value;
         const email = form.email.value;
         const mobileName = form.mobileName.value;
-        const price = form.price.value;
+        const price = form.newPrice.value;
         const phone = form.phone.value;
         const place = form.place.value;
+        const image = mobileBooking?.image
 
         console.log(buyerName, email, mobileName, price, phone, place);
 
@@ -25,7 +26,8 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
             mobileName,
             price,
             phone,
-            place
+            place,
+            image
         }
 
         fetch('http://localhost:5000/bookings',{
@@ -37,9 +39,9 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            
         })
-        console.log(bookings);
+        
         setMobileBooking(null);
         toast.success('Your order booked successfully');
     }
@@ -55,7 +57,7 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
                         
                         <input name='buyerName' type="text" defaultValue={user?.displayName} disabled className="input input-bordered w-full" required />
                         <input name='email' type="text" defaultValue={user?.email} disabled className="input input-bordered w-full " required />
-                        <input name='mobileName' type="text" defaultValue={mobileBooking?.name} disabled className="input input-bordered w-full " required />
+                        <input name='mobileName' type="text" defaultValue={mobileBooking?.productName} disabled className="input input-bordered w-full " required />
                         <input name='newPrice' type="text" defaultValue={mobileBooking?.newPrice} disabled className="input input-bordered w-full " required />
                         <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered w-full" required />
                         <input name='place' type="text" placeholder="Location" className="input input-bordered w-full" required />
