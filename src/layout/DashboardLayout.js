@@ -34,7 +34,7 @@ const DashboardLayout = () => {
         <div>
             <Navbar />
 
-            <div className="drawer lg:drawer-open">
+            <div className="drawer lg:drawer-open ">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet />
@@ -50,7 +50,7 @@ const DashboardLayout = () => {
                         
                          {isUser && (
                              <>
-                                <li className="hover:bg-secondary">
+                                <li className="hover:bg-secondary ">
                                     <Link to="/dashboard/myOrder">My Orders</Link>
                                 </li>                                
                             </>

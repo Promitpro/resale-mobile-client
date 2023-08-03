@@ -19,12 +19,15 @@ import DashBoard from "../../Pages/Dashboard/DashBoard";
 import ReportedItems from "../../Pages/Dashboard/ReportedItems/ReportedItems";
 import Blogs from "../../Pages/Blogs/Blogs";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
+import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 
 
 export const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/',
@@ -53,6 +56,7 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/dashboard',
@@ -81,6 +85,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/reportedItems',
                 element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params}) => {return fetch(`http://localhost:5000/bookings/${params.id}`)}
             },
 
         ]
