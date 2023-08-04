@@ -6,7 +6,7 @@ const Allusers = () => {
     const { data: allbuyers = [], isLoading, refetch } = useQuery({
         queryKey: 'allbuyers',
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users/buyer?buyer=user');
+            const res = await fetch('https://resale-mobile-server-navy.vercel.app/users/buyer?buyer=user');
             const data = await res.json();
             return data;
         }
@@ -16,7 +16,7 @@ const Allusers = () => {
         return <div>Loading ...</div>
     }
     const handleDelete = allbuyer => {
-        fetch(`http://localhost:5000/users/buyer/${allbuyer._id}`,{
+        fetch(`https://resale-mobile-server-navy.vercel.app/users/buyer/${allbuyer._id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())

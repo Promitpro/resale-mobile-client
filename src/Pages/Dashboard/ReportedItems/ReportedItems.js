@@ -6,7 +6,7 @@ const ReportedItems = () => {
     const {data: reportedItems=[], isLoading, error, refetch} = useQuery({
         queryKey: 'reportedItems',
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/reportedItems');
+            const res = await fetch('https://resale-mobile-server-navy.vercel.app/reportedItems');
             const data = await res.json();
             return data;
         }
@@ -20,7 +20,7 @@ const ReportedItems = () => {
     }
 
     const handleReportedItemsDelete = (reportedItem) => {
-        fetch(`http://localhost:5000/reportedItems/${reportedItem._id}`,{
+        fetch(`https://resale-mobile-server-navy.vercel.app/reportedItems/${reportedItem._id}`,{
             method: 'DELETE',
             headers: {
               authorization: `bearer ${localStorage.getItem('accessToken')}`

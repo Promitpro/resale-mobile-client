@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 
 const MyProducts = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/sellingProducts?email=${user?.email}`;
+  const url = `https://resale-mobile-server-navy.vercel.app/sellingProducts?email=${user?.email}`;
   const { data: sellingProducts = [], isLoading, refetch } = useQuery({
     queryKey: 'sellingProducts',
     queryFn: async () => {
@@ -23,7 +23,7 @@ const MyProducts = () => {
     return <div>Loading ...</div>
   }
   const handleAdvertise = id => {
-    fetch(`http://localhost:5000/sellingProducts/${id}`, {
+    fetch(`https://resale-mobile-server-navy.vercel.app/sellingProducts/${id}`, {
       method: 'PUT',
       headers: {
         authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -40,7 +40,7 @@ const MyProducts = () => {
       })
   }
   const handleSellingProductDelete = sellingProduct => {
-    fetch(`http://localhost:5000/sellingProducts/${sellingProduct?._id}`, {
+    fetch(`https://resale-mobile-server-navy.vercel.app/sellingProducts/${sellingProduct?._id}`, {
       method: 'DELETE',
       headers: {
         authorization: `bearer ${localStorage.getItem('accessToken')}`

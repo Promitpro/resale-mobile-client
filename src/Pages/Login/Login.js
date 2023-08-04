@@ -61,7 +61,7 @@ const Login = () => {
 
     const saveUserInDatabase = (name, email, userType) => {
         const user = {name, email, userType};
-        fetch('http://localhost:5000/users',{
+        fetch('https://resale-mobile-server-navy.vercel.app/users',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

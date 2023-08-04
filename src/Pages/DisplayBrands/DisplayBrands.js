@@ -11,7 +11,7 @@ function DisplayBrands() {
   
 
   useEffect(() => {
-    fetch(`http://localhost:5000/brands/${brand}`)
+    fetch(`https://resale-mobile-server-navy.vercel.app/brands/${brand}`)
     .then(res => res.json())
     .then(data => {
       

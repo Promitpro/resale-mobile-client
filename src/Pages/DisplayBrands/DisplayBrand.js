@@ -6,7 +6,7 @@ const DisplayBrand = ({ bdata, setMobileBooking }) => {
 const [isVerified, setIsVerified] = useState('');
 
 useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${bdata?.email}`)
+    fetch(`https://resale-mobile-server-navy.vercel.app/users?email=${bdata?.email}`)
     .then(res => res.json())
     .then(data => {
         const verifiedSeller = data.find((user) => user.verify === 'verified');
@@ -15,7 +15,7 @@ useEffect(() => {
     })
 },[bdata?.email])
 const handleReportItem = productId => {
-    fetch(`http://localhost:5000/sellingProducts/${productId}/report`,{
+    fetch(`https://resale-mobile-server-navy.vercel.app/sellingProducts/${productId}/report`,{
         method: 'PUT'
     })
     .then(res => res.json())

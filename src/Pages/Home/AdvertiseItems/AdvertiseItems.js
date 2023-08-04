@@ -6,7 +6,7 @@ import AdvertiseItem from './AdvertiseItem';
 
 const AdvertiseItems = () => {
     const { user } = useContext(AuthContext);
-    const url = 'http://localhost:5000/sellingProducts?productAdvertise=advertising';
+    const url = 'https://resale-mobile-server-navy.vercel.app/sellingProducts?productAdvertise=advertising';
     const {data: advertiseItems=[], isLoading} = useQuery({
         queryKey: 'advertiseItems',
         queryFn: async () => {

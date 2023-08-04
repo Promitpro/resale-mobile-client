@@ -44,7 +44,7 @@ const AddProduct = () => {
                 
                 }
                 
-                fetch('http://localhost:5000/sellingProducts', {
+                fetch('https://resale-mobile-server-navy.vercel.app/sellingProducts', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

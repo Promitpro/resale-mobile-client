@@ -6,7 +6,7 @@ const Allsellers = () => {
     const {data: allsellers=[], isLoading, refetch} = useQuery({
         queryKey: 'allsellers',
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users/seller?seller=seller');
+            const res = await fetch('https://resale-mobile-server-navy.vercel.app/users/seller?seller=seller');
             const data = await res.json();
             return data;
         }
@@ -15,7 +15,7 @@ const Allsellers = () => {
         return <progress className="progress w-56 left-1/3 ml-0 lg:ml-28"></progress>
     }
     const handleVerify = id => {
-        fetch(`http://localhost:5000/users/seller/${id}`, {
+        fetch(`https://resale-mobile-server-navy.vercel.app/users/seller/${id}`, {
             method: 'PUT'
         })
         .then(res => res.json())
@@ -30,7 +30,7 @@ const Allsellers = () => {
     }
      
     const handleDelete = allseller => {
-        fetch(`http://localhost:5000/users/seller/${allseller._id}`,{
+        fetch(`https://resale-mobile-server-navy.vercel.app/users/seller/${allseller._id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())

@@ -14,7 +14,7 @@ const DashboardLayout = () => {
     const { data: users = [], isLoading, error } = useQuery({
         queryKey: 'users',
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users?email=${user?.email}`);
+            const res = await fetch(`https://resale-mobile-server-navy.vercel.app/users?email=${user?.email}`);
             const data = await res.json();
             
             return data;

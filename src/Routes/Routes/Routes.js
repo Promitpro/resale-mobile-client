@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
             {
                 path: '/displayBrand/:brand',
                 element: <PrivateRoute><DisplayBrands></DisplayBrands></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/brands/${params.brand}`)
+                loader: ({params}) => fetch(`https://resale-mobile-server-navy.vercel.app/brands/${params.brand}`)
             },
             
         ]
@@ -85,7 +85,7 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params}) => {return fetch(`http://localhost:5000/bookings/${params.id}`)}
+                loader: ({params}) => {return fetch(`https://resale-mobile-server-navy.vercel.app/bookings/${params.id}`)}
             },
 
         ]

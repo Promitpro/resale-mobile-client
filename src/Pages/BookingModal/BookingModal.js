@@ -30,7 +30,7 @@ const BookingModal = ({ mobileBooking, setMobileBooking }) => {
             image
         }
 
-        fetch('http://localhost:5000/bookings',{
+        fetch('https://resale-mobile-server-navy.vercel.app/bookings',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
