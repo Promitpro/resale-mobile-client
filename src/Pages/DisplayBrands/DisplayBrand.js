@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const DisplayBrand = ({ bdata, setMobileBooking }) => {
 const [isVerified, setIsVerified] = useState('');
-console.log(bdata);
+
 useEffect(() => {
     fetch(`http://localhost:5000/users?email=${bdata?.email}`)
     .then(res => res.json())

@@ -14,7 +14,7 @@ function DisplayBrands() {
     fetch(`http://localhost:5000/brands/${brand}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      
       setBrandData(data);
     })
   },[])

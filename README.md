@@ -28,3 +28,7 @@ website link - https://captured-moments-b8c9a.web.app/
 * npm i jsonwebtoken
 * npm i dotenv
 * npm i stripe
+
+# Admin email & Password
+* admin email: promit22@gmail.com
+* admin password: 12qw!@QW

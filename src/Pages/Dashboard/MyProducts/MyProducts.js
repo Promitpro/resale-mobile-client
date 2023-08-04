@@ -10,42 +10,50 @@ const MyProducts = () => {
   const { data: sellingProducts = [], isLoading, refetch } = useQuery({
     queryKey: 'sellingProducts',
     queryFn: async () => {
-      const res = await fetch(url);
+      const res = await fetch(url, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+      });
       const data = await res.json();
       return data;
     }
   })
-  if(isLoading)
-  {
+  if (isLoading) {
     return <div>Loading ...</div>
   }
   const handleAdvertise = id => {
     fetch(`http://localhost:5000/sellingProducts/${id}`, {
-      method: 'PUT'
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      if(data.acknowledged)
-      {
-        toast.success('Your product is now advertising in the home page');
-        refetch()
-      }
-    })
-  }
-  const handleSellingProductDelete = sellingProduct => {
-    fetch(`http://localhost:5000/sellingProducts/${sellingProduct?._id}`,{
-      method: 'DELETE'
-    })
-    .then(res => res.json())
-    .then(data => {
-      if(data.acknowledged)
-      {
-        toast.success('Your product deleted successfully');
-        refetch()
+      method: 'PUT',
+      headers: {
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
       }
 
     })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success('Your product is now advertising in the home page');
+          refetch()
+        }
+      })
+  }
+  const handleSellingProductDelete = sellingProduct => {
+    fetch(`http://localhost:5000/sellingProducts/${sellingProduct?._id}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acknowledged) {
+          toast.success('Your product deleted successfully');
+          refetch()
+        }
+
+      })
 
   }
   return (
@@ -83,7 +91,7 @@ const MyProducts = () => {
                           <img src={sellingProduct.image} alt="Avatar Tailwind CSS Component" />
                         </div>
                       </div>
-                      
+
                     </div>
                   </td>
 
@@ -94,10 +102,10 @@ const MyProducts = () => {
                   </th>
                   <th>
                     {
-                      sellingProduct?.productAdvertise !== 'advertising' && 
+                      sellingProduct?.productAdvertise !== 'advertising' &&
                       <button onClick={() => handleAdvertise(sellingProduct._id)} className="btn btn-ghost btn-xs">Advertise</button>
                     }
-                    
+
                   </th>
                   <th>
                     <button onClick={() => handleSellingProductDelete(sellingProduct)} className="btn btn-ghost btn-xs">Delete</button>
