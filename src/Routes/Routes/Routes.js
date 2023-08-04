@@ -4,11 +4,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Signin from "../../Pages/Login/Signin";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-
-
 import DisplayBrands from "../../Pages/DisplayBrands/DisplayBrands";
-
-
 import DashboardLayout from "../../layout/DashboardLayout";
 import MyOrders from "../../Pages/Dashboard/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";

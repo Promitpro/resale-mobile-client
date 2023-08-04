@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import img from '../../assets/verify.png'
 import { toast } from 'react-hot-toast';
 
-
-
 const DisplayBrand = ({ bdata, setMobileBooking }) => {
-
+const [isVerified, setIsVerified] = useState('');
+console.log(bdata);
+useEffect(() => {
+    fetch(`http://localhost:5000/users?email=${bdata?.email}`)
+    .then(res => res.json())
+    .then(data => {
+        const verifiedSeller = data.find((user) => user.verify === 'verified');
+        setIsVerified(verifiedSeller !== undefined);
+        console.log(verifiedSeller);
+    })
+},[bdata?.email])
 const handleReportItem = productId => {
     fetch(`http://localhost:5000/sellingProducts/${productId}/report`,{
         method: 'PUT'
@@ -37,7 +45,9 @@ const handleReportItem = productId => {
 
                 <div className='flex'>
 
-                    <img className='w-4 h-4 mt-2 mr-2 ' src={img} alt="" />
+                    {
+                        isVerified && (<img className='w-4 h-4 mt-2 mr-2 ' src={img} alt="" />)
+                    }
                     <p className='font-bold text-base '>seller name: {bdata?.displayName}</p>
                 </div>
 

@@ -4,7 +4,7 @@ import redmi from '../../../assets/brand/redmi.jpg'
 import samsung from '../../../assets/brand/samsung.jpg'
 import PrivateButton from '../../../PrivateButton/PrivateButton';
 import img from '../../../assets/star.png';
-import { Link, useHistory, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const RightSideNav = () => {
     const [selectedBrand, setSelectedBrand] = useState('');

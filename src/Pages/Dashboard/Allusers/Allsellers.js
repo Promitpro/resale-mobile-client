@@ -12,8 +12,23 @@ const Allsellers = () => {
         }
     })
     if(isLoading){
-        return <div>Loading ...</div>
+        return <progress className="progress w-56 left-1/3 ml-0 lg:ml-28"></progress>
     }
+    const handleVerify = id => {
+        fetch(`http://localhost:5000/users/seller/${id}`, {
+            method: 'PUT'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.acknowledged)
+            {
+                toast.success('seller verified successfully');
+                refetch();
+            }
+        })
+    }
+     
     const handleDelete = allseller => {
         fetch(`http://localhost:5000/users/seller/${allseller._id}`,{
             method: 'DELETE'
@@ -52,8 +67,17 @@ const Allsellers = () => {
                                     <th>{i+1}</th>
                                     <td>{allseller.name}</td>
                                     <td>{allseller.email}</td>
-                                    <td><button className='className="btn btn-xs btn-secondary' onClick={()=>handleDelete(allseller)}>Delete</button></td>
-                                    <td><button className='className="btn btn-xs btn-primary' >Verify</button></td>
+                                    <td><button className='btn btn-xs btn-secondary' onClick={()=>handleDelete(allseller)}>Delete</button></td>
+                                    <td>
+                                        {
+                                            !allseller.verify &&
+                                            <button className='btn btn-xs btn-primary' onClick={() => handleVerify(allseller._id)}>Verify</button>
+                                        }
+                                        {
+                                            allseller.verify &&
+                                            <p className='text-blue-500'>Verify</p>
+                                        }
+                                    </td>
                                 </tr>)
                         }
 

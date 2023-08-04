@@ -8,6 +8,8 @@ function DisplayBrands() {
   const [brandData, setBrandData] = useState([]);
   const [mobileBooking, setMobileBooking] = useState(null);
 
+  
+
   useEffect(() => {
     fetch(`http://localhost:5000/brands/${brand}`)
     .then(res => res.json())

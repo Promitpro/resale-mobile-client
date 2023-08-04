@@ -9,6 +9,7 @@ const DashboardLayout = () => {
 
     const { user } = useContext(AuthContext);
     const [isAdmin, isAdminLoading] = useAdmin(user?.email);
+    
 
     const { data: users = [], isLoading, error } = useQuery({
         queryKey: 'users',

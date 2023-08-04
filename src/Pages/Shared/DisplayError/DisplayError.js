@@ -10,7 +10,7 @@ const DisplayError = () => {
     const handleLogout = () => {
         logOut()
           .then(() => { 
-            navigate('/')
+            navigate('/login')
           })
           .catch(error => console.log(error))
       }
