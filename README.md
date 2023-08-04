@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # website name - Mobile Island
 
 
-website link - [https://captured-moments-b8c9a.web.app/](https://resale-mobile-8606d.web.app/)
+website link - (https://resale-mobile-8606d.web.app/)
 
 # Features
 
